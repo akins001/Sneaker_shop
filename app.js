@@ -15,7 +15,7 @@ const Products = [
             },
             {
                 code: "white",
-                img: "./img_wh.png",
+                img: "./img/af_wh.png",
             },
         ],
     },
