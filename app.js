@@ -141,3 +141,57 @@ productButton.addEventListener("click", () => {
 close.addEventListener("click", () => {
     payment.style.display = "none";
 });
+const form = document.querySelector('form');
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+    
+    const cardNumberInput = document.getElementById('cardNumber');
+    const expiryMonthInput = document.getElementById('expiryMonth');
+    const expiryYearInput = document.getElementById('expiryYear');
+    const cvvInput = document.getElementById('cvv');
+    
+    const cardNumber = cardNumberInput.value;
+    const expiryMonth = expiryMonthInput.value;
+    const expiryYear = expiryYearInput.value;
+    const cvv = cvvInput.value;
+    
+    // Validate the card number length
+    const cardNumberMaxLength = 16;
+    if (cardNumber.length !== cardNumberMaxLength) {
+        alert('Please enter a valid card number with ' + cardNumberMaxLength + ' digits.');
+        cardNumberInput.focus();
+        return;
+    }
+    
+    // Validate the expiry month length
+    const expiryMonthMaxLength = 2;
+    if (expiryMonth.length !== expiryMonthMaxLength) {
+        alert('Please enter a valid expiry month with ' + expiryMonthMaxLength + ' digits.');
+        expiryMonthInput.focus();
+        return;
+    }
+    
+    // Validate the expiry year length
+    const expiryYearMaxLength = 4;
+    if (expiryYear.length !== expiryYearMaxLength) {
+        alert('Please enter a valid expiry year with ' + expiryYearMaxLength + ' digits.');
+        expiryYearInput.focus();
+        return;
+    }
+    
+    // Validate the CVV length
+    const cvvMaxLength = 3;
+    if (cvv.length !== cvvMaxLength) {
+        alert('Please enter a valid CVV with ' + cvvMaxLength + ' digits.');
+        cvvInput.focus();
+        return;
+    }
+    
+    // Display the captured values in the console
+    console.log('Card Number:', cardNumber);
+    console.log('Expiration Month:', expiryMonth);
+    console.log('Expiration Year:', expiryYear);
+    console.log('CVV:', cvv);
+    
+    // You can perform further processing or send the data to a server here
+});
